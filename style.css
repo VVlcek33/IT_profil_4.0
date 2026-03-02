@@ -4,8 +4,8 @@ body {
     max-width: 600px;
     margin: 2rem auto;
     padding: 1rem;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #e7f0fd; /* light blue background */
+    color: #222;
 }
 
 h1 {
@@ -30,14 +30,15 @@ input[type="text"] {
 
 button {
     padding: 0.5rem 1rem;
-    background-color: #007bff;
+    background-color: #0066cc;
     color: #fff;
     border: none;
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0052a3;
     transform: translateY(-2px);
 }
 
@@ -47,12 +48,7 @@ button:active {
 
 input[type="text"]:focus {
     outline: none;
-    border: 2px solid #007bff;
-}
-
-ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
+    border: 2px solid #0052a3;
 }
 
 li {
@@ -68,17 +64,17 @@ li:hover {
 }
 
 .success {
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
+    color: #0b3d91;
+    background-color: #d0e4ff;
+    border: 1px solid #8ab4f8;
     padding: 0.5rem;
     margin-top: 1rem;
 }
 
 .error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
+    color: #003366;
+    background-color: #cfe2ff;
+    border: 1px solid #b0c4de;
     padding: 0.5rem;
     margin-top: 1rem;
 }
