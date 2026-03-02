@@ -7,9 +7,21 @@ if (file_exists($profileFile)) {
     $data = json_decode($json, true);
 }
 
-// zajistíme strukturu
+// zajistíme strukturu a další pole
 if (!isset($data['interests']) || !is_array($data['interests'])) {
     $data['interests'] = [];
+}
+if (!isset($data['about'])) {
+    $data['about'] = '';
+}
+if (!isset($data['skills'])) {
+    $data['skills'] = ['general' => [], 'technologies' => []];
+}
+if (!isset($data['projects'])) {
+    $data['projects'] = '';
+}
+if (!isset($data['goal'])) {
+    $data['goal'] = '';
 }
 
 $message = '';
@@ -57,6 +69,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <?php if ($data['about'] !== ''): ?>
+    <section id="about">
+        <h2>O mně</h2>
+        <p><?php echo nl2br(htmlspecialchars($data['about'], ENT_QUOTES, 'UTF-8')); ?></p>
+    </section>
+<?php endif; ?>
+
+<?php if (!empty($data['skills']['general']) || !empty($data['skills']['technologies'])): ?>
+    <section id="skills">
+        <h2>Co umím</h2>
+        <?php if (!empty($data['skills']['general'])): ?>
+            <ul>
+                <?php foreach ($data['skills']['general'] as $skill): ?>
+                    <li><?php echo htmlspecialchars($skill, ENT_QUOTES, 'UTF-8'); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+        <?php if (!empty($data['skills']['technologies'])): ?>
+            <ul>
+                <?php foreach ($data['skills']['technologies'] as $tech): ?>
+                    <li><?php echo htmlspecialchars($tech, ENT_QUOTES, 'UTF-8'); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </section>
+<?php endif; ?>
+
+<?php if ($data['projects'] !== ''): ?>
+    <section id="projects">
+        <h2>Projekty</h2>
+        <p><?php echo nl2br(htmlspecialchars($data['projects'], ENT_QUOTES, 'UTF-8')); ?></p>
+    </section>
+<?php endif; ?>
+
+<?php if ($data['goal'] !== ''): ?>
+    <section id="goal">
+        <h2>Cíl</h2>
+        <p><?php echo nl2br(htmlspecialchars($data['goal'], ENT_QUOTES, 'UTF-8')); ?></p>
+    </section>
+<?php endif; ?>
+
     <h1>Moje zájmy</h1>
 
     <ul>
