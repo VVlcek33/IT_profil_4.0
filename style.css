@@ -1,6 +1,6 @@
 /* jednoduchý moderní styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     max-width: 600px;
     margin: 2rem auto;
     padding: 1rem;
@@ -38,6 +38,33 @@ button {
 
 button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+li {
+    background: #fff;
+    margin: 0.3rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+li:hover {
+    background-color: #f1f1f1;
 }
 
 .success {
