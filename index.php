@@ -29,6 +29,7 @@ $messageType = '';
 
 // zpracování formuláře
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // přidání nového zájmu
     if (isset($_POST['new_interest'])) {
         $newInterest = trim($_POST['new_interest']);
         if ($newInterest === '') {
@@ -57,6 +58,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message = 'Zájem byl úspěšně přidán.';
                 $messageType = 'success';
             }
+        }
+    }
+
+    // odstranění zájmu
+    if (isset($_POST['delete_index'])) {
+        $idx = intval($_POST['delete_index']);
+        if (isset($data['interests'][$idx])) {
+            $removed = $data['interests'][$idx];
+            array_splice($data['interests'], $idx, 1);
+            // uložit po změně
+            $encoded = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            file_put_contents($profileFile, $encoded);
+            $message = 'Zájem "' . htmlspecialchars($removed, ENT_QUOTES, 'UTF-8') . '" byl odstraněn.';
+            $messageType = 'success';
+        } else {
+            $message = 'Nebyl vybrán platný zájem.';
+            $messageType = 'error';
         }
     }
 }
@@ -113,8 +131,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Moje zájmy</h1>
 
     <ul>
-        <?php foreach ($data['interests'] as $interest): ?>
-            <li><?php echo htmlspecialchars($interest, ENT_QUOTES, 'UTF-8'); ?></li>
+        <?php foreach ($data['interests'] as $idx => $interest): ?>
+            <li>
+                <?php echo htmlspecialchars($interest, ENT_QUOTES, 'UTF-8'); ?>
+                <form method="POST" style="display:inline;">
+                    <input type="hidden" name="delete_index" value="<?php echo $idx; ?>">
+                    <button type="submit" class="delete-button">&times;</button>
+                </form>
+            </li>
         <?php endforeach; ?>
     </ul>
 

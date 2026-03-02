@@ -57,6 +57,9 @@ li {
     padding: 0.5rem;
     border-radius: 4px;
     transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 li:hover {
@@ -77,4 +80,17 @@ li:hover {
     border: 1px solid #b0c4de;
     padding: 0.5rem;
     margin-top: 1rem;
+}
+
+.delete-button {
+    background: transparent;
+    border: none;
+    color: #c00;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    color: #900;
 }
