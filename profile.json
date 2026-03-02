@@ -9,13 +9,18 @@
             "samostatné vyhledávání informací a práce s dokumentací"
         ],
         "technologies": [
-            "Programovací jazyky: Python / Java / C# / JavaScript",
-            "Web: HTML, CSS, základní frontend / backend",
-            "Databáze: SQL (MySQL / PostgreSQL / SQLite)",
+            "Programovací jazyky: Python \/ Java \/ C# \/ JavaScript",
+            "Web: HTML, CSS, základní frontend \/ backend",
+            "Databáze: SQL (MySQL \/ PostgreSQL \/ SQLite)",
             "Nástroje: Git, GitHub, VS Code, Linux (základy)"
         ]
     },
     "projects": "V rámci studia i ve volném čase vytvářím vlastní projekty, na kterých si zkouším nové technologie a postupy. U každého projektu se snažím pochopit nejen jak něco naprogramovat, ale i proč se to dělá právě tak.",
-    "goal": "Mým cílem je získat první komerční zkušenost v IT (junior pozice / stáž), kde můžu rozvíjet své schopnosti, naučit se pracovat v týmu a poznat reálný vývoj software. Jsem motivovaný učit se nové věci, přijímat feedback a dlouhodobě se v oboru zlepšovat.",
-    "interests": ["PHP", "Web", "AI"]
+    "goal": "Mým cílem je získat první komerční zkušenost v IT (junior pozice \/ stáž), kde můžu rozvíjet své schopnosti, naučit se pracovat v týmu a poznat reálný vývoj software. Jsem motivovaný učit se nové věci, přijímat feedback a dlouhodobě se v oboru zlepšovat.",
+    "interests": [
+        "PHP",
+        "Web",
+        "AI",
+        "sigma"
+    ]
 }
